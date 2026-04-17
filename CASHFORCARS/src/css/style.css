@@ -92,6 +92,13 @@ p { margin-bottom: 15px; }
     border-radius: 2px;
 }
 .text-left.section-title::after { left: 0; transform: none; }
+
+@media (max-width: 768px) {
+    .section-title.text-left::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 .section-desc { text-align: center; color: var(--text-light); margin-bottom: 40px; font-size: 1.05rem; }
 .text-center { text-align: center; }
 .text-left { text-align: left; }
@@ -1158,29 +1165,30 @@ p { margin-bottom: 15px; }
    RESPONSIVE DESIGN — PREMIUM REFACTOR
    ================================ */
 
-/* Mobile CTA FAB */
 .mobile-cta-fab {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 20px;
+    right: 20px;
     background: var(--primary-mint);
     color: var(--white);
-    padding: 14px 24px;
+    padding: 12px 20px;
     border-radius: 50px;
     font-weight: 800;
-    box-shadow: 0 10px 25px rgba(46, 204, 113, 0.4);
-    z-index: 999;
+    box-shadow: 0 8px 25px rgba(0, 193, 110, 0.4);
+    z-index: 9999;
     display: none; /* Shown via JS on scroll */
     align-items: center;
     gap: 8px;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    font-size: 0.8rem;
     transition: var(--transition-smooth);
-    border: 2px solid rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.25);
     text-decoration: none;
+    backdrop-filter: blur(4px);
 }
-.mobile-cta-fab:active { transform: scale(0.95); }
+.mobile-cta-fab svg { flex-shrink: 0; }
+.mobile-cta-fab:active { transform: scale(0.96); }
 
 /* ================================
    HERO AWARD ROW
@@ -1473,7 +1481,19 @@ p { margin-bottom: 15px; }
 
     /* Section padding reduced */
     .benefits-section,
-    .services-section { padding: 55px 0; }
+    .services-section,
+    .custom-media-section,
+    .scrap-info-section,
+    .faq-home-section { padding: 60px 0 80px; }
+
+    /* Ensure text doesn't overflow or clip */
+    .content-col p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media (max-width: 480px) {
